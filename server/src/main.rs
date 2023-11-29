@@ -106,10 +106,8 @@ fn main() {
             }
         }
 
-        let mut removed = 0;
-        for i in clients_to_remove {
-            chat_state.clients.remove(i - removed);
-            removed += 1;
+        for (i, client) in clients_to_remove.iter().enumerate() {
+            chat_state.clients.remove(client - i);
         }
 
         poller.clear();
