@@ -85,15 +85,15 @@ fn main() {
                 continue;
             }
 
-            line = line.trim().to_string();
+            let line = line.trim();
 
             if line.starts_with("/") {
-                line = line.trim_start_matches("/").to_string();
-                if line.starts_with("nick") {
-                    let nickname = line.trim_start_matches("nick ").trim();
+                let cmd = line.trim_start_matches("/");
+                if cmd.starts_with("nick") {
+                    let nickname = cmd.trim_start_matches("nick ").trim();
                     client.nickname = nickname.to_string();
                 } else {
-                    let msg = format!("Unknown command: {}\n", line.trim());
+                    let msg = format!("Unknown command: {}\n", cmd.trim());
                     client.stream.write_all(msg.as_bytes()).unwrap();
                 }
             } else {
