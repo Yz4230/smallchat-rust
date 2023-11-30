@@ -1,6 +1,6 @@
 # smallchat-rust
 
-A small chat server and client written in Rust.
+A Rust implementation of [antirez/smallchat](https://github.com/antirez/smallchat).
 
 ## Build
 
